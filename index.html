@@ -43,6 +43,21 @@
 
 </main>
 
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.header__nav-item');
+    function removeActiveClass() {
+      navItems.forEach(item => {
+        item.classList.remove('active');
+      });
+    }
+    navItems.forEach(item => {
+      item.addEventListener('click', function(event) {
+        removeActiveClass();
+        this.classList.add('active');
+      });
+    });
+  });
+</script>
 </body>
 </html>
