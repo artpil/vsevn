@@ -36,7 +36,59 @@
 
 
 <main>
-  <h1>main</h1>
+  <section class="import-section">
+    <div class="container">
+      <div class="import-card">
+        <h2 class="import-card__title">Импорт из xml/xlsx/dosx</h2>
+
+        <div class="import-card__row">
+          <!-- Блок с датами -->
+          <div class="import-card__dates">
+            <div class="date-input">
+              <span class="date-input__label">ДАТА ОТ</span>
+              <span class="date-input__value">12.05.2023</span>
+            </div>
+            <div class="date-input">
+              <span class="date-input__label">ДАТА ДО</span>
+              <span class="date-input__value">12.05.2023</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="import-card__controls">
+          <!-- Выбор типа файла -->
+          <div class="control-group control-group--type">
+            <label class="control-label">Укажите тип файла</label>
+            <div class="select-wrapper">
+              <select class="form-select">
+                <option value=""></option>
+                <option value="xml">XML</option>
+                <option value="xlsx">XLSX</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="control-group control-group--path">
+            <label class="control-label">Укажите путь к файлу</label>
+            <div class="input-file-wrapper">
+              <input type="text" class="form-input" id="file-name" placeholder="" readonly>
+              <div class="attach-icon-container">
+                <img src="img/i-attachment.svg" alt="Прикрепить">
+              </div>
+              <input type="file" class="real-file-input" id="file-upload" title="Прикрепить файл">
+            </div>
+          </div>
+
+          <!-- Кнопка действия -->
+          <div class="control-group control-group--btn">
+            <button class="btn-submit">Начать Импорт</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
 
@@ -57,6 +109,10 @@
         this.classList.add('active');
       });
     });
+  });
+  document.getElementById('file-upload').addEventListener('change', function() {
+    const fileName = this.files[0] ? this.files[0].name : "Файл не выбран";
+    document.getElementById('file-name').value = fileName;
   });
 </script>
 </body>
